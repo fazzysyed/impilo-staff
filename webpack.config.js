@@ -5,13 +5,13 @@ module.exports = {
   mode: "production",
   entry: path.resolve(__dirname, "src/index.js"),
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"),
     filename: "index.js",
     clean: true,
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, "build"),
     },
     port: 3000,
     open: true,
