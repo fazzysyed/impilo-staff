@@ -1,0 +1,224 @@
+.sidebar-container {
+    padding: 0 3rem;
+}
+.filter-head {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+.filter-head-img {
+    width: 1.8rem;
+    height: 1.6rem;
+    align-self: center;
+    margin-right: 1.3rem;
+}
+.filter-text {
+    font-size: 2rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+}
+.border-filter {
+    border-bottom: 1px solid #C2C9D4;
+    margin-bottom: 3.1rem;
+    width: 95%;
+    align-self: center;
+}
+.tag-section {
+    display: flex;
+    flex-direction: column;
+}
+.tag-text {
+    font-size: 1.8rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+}
+.tag-selector {
+    display: flex;
+    flex-direction: column;
+    width: 34.1rem;
+}
+.tags {
+    display: flex;
+    flex-direction: row;
+}
+.license-list {
+    margin-top: 2rem;
+}
+.license-section {
+    display: flex;
+    flex-direction: column;
+}
+.license-text {
+    font-size: 1.8rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+    margin-top: 3.1rem;
+}
+.license-selector {
+    display: flex;
+    flex-direction: row;
+}
+.check-box {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 2px 2px 2px 2px;
+}
+.license1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: center;
+    font-size: 1.4rem;
+    color: #6A6A73;
+    font-family: "NunitoRegular";
+    line-height: 3rem;
+    margin-left: 1.6rem;
+}
+.license-selector2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.4rem;
+} 
+.price-section {
+    display: flex;
+    flex-direction: column;
+}
+.css-187mznn-MuiSlider-root {
+    width: 25rem !important;
+    margin-top: 2rem;
+}
+.price-text {
+    font-size: 1.8rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+    margin-top: 3.1rem;
+}
+.filter-button {
+    width: 24.3rem;
+    align-self: center;
+    height: 5.4rem;
+    border: 1px solid #1C75BC;
+    background-color: #1C75BC;
+    border-radius: 6px 6px 6px 6px;
+    font-size: 2rem;
+    color: #F5F5F5;
+    font-family: "GilroyMedium";
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    cursor: pointer;
+}
+.license-list-mob {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.license-selector2-mob {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 3.5rem;
+    width: 38%;
+} 
+.license1-mob {
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: center;
+    font-size: 1.4rem;
+    color: #6A6A73;
+    font-family: "NunitoRegular";
+    line-height: 3rem;
+    margin-left: 1.2rem;
+}
+.list-item--4-mob {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.4rem;
+    margin-left: 5.2rem;
+    width: 41%;
+}
+.filter-head-img-mob {
+    width: 1.37rem;
+    height: 1.3rem;
+    align-self: center;
+    margin-left: 2.6rem;
+    margin-right: 1.3rem;
+}
+.filter-text-mob {
+    font-size: 1.8rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+}
+.filter-card-mob {
+    border: 1px solid #FFFFFF;
+    border-radius: 12px 12px 12px 12px;
+    background-color: #FFFFFF;
+    box-shadow: #10274F29 0px 0px 24px;
+    width: 34.8rem;
+    display: flex;
+    flex-direction:column;
+    padding-top: .6rem;
+}
+.border-filter-mob {
+    border-bottom: 1px solid #C2C9D4;
+    margin-bottom: 1rem;
+    width: 82%;
+    align-self: center;
+}
+.tag-text-mob {
+    font-size: 1.6rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+}
+.license-text-mob {
+    font-size: 1.6rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+    margin-top: 3.1rem;
+} 
+.price-text-mob {
+    font-size: 1.6rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+    margin-top: 3.1rem;
+}
+.filter-button-mob {
+    width: 30.5rem;
+    align-self: center;
+    height: 5.4rem;
+    border: 1px solid #1C75BC;
+    background-color: #1C75BC;
+    border-radius: 6px 6px 6px 6px;
+    font-size: 1.6rem;
+    color: #F5F5F5;
+    font-family: "GilroyMedium";
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+}
+.filter-section-mob {
+    background-color: #F9FAFE;
+}
+.check-box-mob {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 2px 2px 2px 2px;
+}
+.license-selector-mob {
+    display: flex;
+    flex-direction: row;
+    width: 38%;
+}
+.price-section-mob {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+}
+.check-box ::after {
+    background-color: red;
+}
+input[type='checkbox'] {
+    accent-color: #1C75BC;
+}   
+.refine-btn-container {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,203 @@
+.professional-card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+.professional-card {
+  box-shadow: #10274f29 0px 0px 24px;
+  border-radius: 12px;
+  width: 20rem;
+  padding-left: 1.5rem;
+}
+.verify-badge {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.verify-badge > img {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+}
+.user-details {
+  display: flex;
+  margin-top: 3rem;
+  align-items: center;
+}
+.user-details > img {
+  width: 5rem;
+  height: 5rem;
+}
+.card-username {
+  font-size: 1.4rem;
+  color: #10274f;
+  font-family: "GilroyBold";
+}
+.card-designation {
+  font-size: 1.1rem;
+  color: #6a6a73;
+  font-family: "GilroyMedium";
+  margin-top: 0.5rem;
+}
+.username-details {
+  margin-left: 1rem;
+}
+.user-rate {
+  margin-top: 3rem;
+}
+.user-rate > ul {
+  list-style: none;
+  font-size: 1rem;
+  font-family: "NunitoRegular";
+}
+.user-rate > ul > li {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.view-btn-container {
+  display: flex;
+  justify-content: center;
+  padding-right: 1.5rem;
+}
+.view-details-btn {
+  padding: 1rem 0;
+  width: 25rem;
+  font-size: 1.5rem;
+  color: #8f9194;
+  font-family: "GilroyMedium";
+  border-radius: 6px;
+  border: 1px solid #c2c9d4;
+  background-color: #fff;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.view-details-btn:hover {
+  background-color: #10274f;
+  color: #fff;
+}
+.card-map-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 70rem;
+}
+/* Modal */
+
+.modal-backdrop {
+  --bs-backdrop-opacity: 0.2 !important;
+}
+.modal-pro-info {
+  flex-basis: 50%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.modal-working-hrs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid #c2c9d4;
+}
+.bookmark-icon {
+  font-size: 2rem;
+  color: #1c75bc;
+  position: absolute;
+  right: -4.5rem;
+  top: 1.5rem;
+}
+.avatar-pro {
+  width: 9rem;
+  height: 9rem;
+  margin-top: 3.5rem;
+}
+.modal-pro-user-text {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  font-family: "GilroySemibold";
+  color: #1c75bc;
+  padding-right: 1rem;
+  margin-bottom: 0.4rem;
+}
+.modal-designation {
+  font-size: 1.2rem;
+  font-family: "GilroyMedium";
+  color: #8f9194;
+}
+.modal-rating-heading {
+  font-size: 1.2rem;
+  font-family: "NunitoBold";
+  color: #10274f;
+  margin-right: 1rem;
+}
+.modal-stars {
+  font-size: 1.2rem;
+  color: #f2bc27;
+  margin-right: 0.2rem;
+}
+.modal-b1 {
+  border-bottom: 1px solid #c2c9d4;
+  width: 100%;
+  margin-top: 2rem;
+}
+.modal-working {
+  background-color: #f2f3f7;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.modal-working-text {
+  font-family: "GilroyBold";
+  color: #10274f;
+  margin-top: 2rem;
+}
+.modal-days-schedule {
+  margin-top: 1rem;
+  list-style: none;
+  font-size: 1rem;
+  color: #1c75bc;
+  font-family: "NunitoBoldItalic";
+  padding: 0;
+  line-height: 2.3;
+}
+.modal-about {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 0 3rem;
+}
+.modal-about-heading {
+  font-family: "GilroyBold";
+  color: #10274f;
+}
+.modal-about-text {
+  font-size: 1.2rem;
+  font-family: "NunitoRegular";
+  color: #8f9194;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+.modal-contact-btn {
+  border: 1px solid #1c75bc;
+  background-color: #1c75bc;
+  font-size: 1.2rem;
+  font-family: "GilroyMedium";
+  color: #fff;
+  padding: 1rem 6rem;
+  border-radius: 6px;
+}
+.modal-view-btn {
+  border: 1px solid #1c75bc;
+  background-color: #fff;
+  font-size: 1.2rem;
+  font-family: "GilroyMedium";
+  color: #1c75bc;
+  padding: 1rem 7rem;
+  border-radius: 6px;
+}
+.modal-b2 {
+  border-bottom: 1px solid #c2c9d4;
+  width: 100%;
+  margin-top: 2rem;
+}

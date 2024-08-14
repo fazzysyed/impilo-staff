@@ -1,0 +1,171 @@
+.login-container {
+    display: flex;
+    padding: 2.5rem;
+}
+.signup-image-section {
+    flex-basis: 50%;
+    background-color: lightblue;
+    border-radius: 12px 0 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signup-image-section > img {
+    height: 50rem;
+}
+.login-credentials-section {
+    flex-basis: 50%;
+    background-color: #eee;
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-container {
+    margin-top: 8rem;
+}
+.logo-container > img {
+    height: 5rem;
+}
+.login-hello-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-hello-text > h1 {
+    font-size: 4rem;
+    color: #10274F;
+    font-family: "GilroyBold";
+    margin-top: 4rem;
+    text-align: center;
+}
+.login-hello-text > p {
+    font-size: 1.5rem;
+    color: gray;
+    font-family: "NunitoRegular";
+    text-align: center;
+    width: 70%;
+    margin-top: 2rem;
+}
+.email-text-field {
+    width: 40rem;
+    border-radius: 100px !important;
+}
+.email-text-field > .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    font-size: 1.2rem;
+    color: gray;
+    font-family: "NunitoRegular";
+}
+.email-text-field > .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    font-size: 1.2rem;
+    font-family: "NunitoRegular";
+}
+.email-text-field > .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    font-size: 1.5rem;
+}
+.email-icon {
+    font-size: 2.5rem;
+    position: absolute;
+    right: 2%;
+    top: 25%;
+    color: #ccc;
+}
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 1.6rem 1.4rem !important;
+} */
+.remember-box {
+    display: flex;
+    align-items: center;
+    width: 40rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.remember {
+    font-size: 1.2rem;
+    color: #1c1c1c;
+    font-family: "NunitoRegular";
+}
+.remember-checkbox {
+    width: 1rem;
+    margin-right: .5rem;
+}
+.recovery-text {
+    font-size: 1.2rem;
+    color: royalblue;
+    font-family: "NunitoRegular";
+    cursor: pointer;
+}
+.login-btn {
+    width: 40rem;
+    padding: 1.5rem 0;
+    background-color: #10274F;
+    color: #fff;
+    border-radius: 6px;
+    border: 1px solid;
+    cursor: pointer;
+}
+.login-btn:hover {
+    background-color: #fff;
+    border: 1px solid #10274F;
+    color: #10274F;
+}
+.login-btns {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+.signin-btn {
+    width: 40rem;
+    padding: 1.5rem 0;
+    background-color: #fff;
+    color: #1c1c1c;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signin-btn > img {
+    height: 2rem;
+    margin-right: 1rem;
+}
+.signin-btn:hover {
+    background-color: #10274F;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.footer-text {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
+.footer-text > p {
+    font-size: 1.5rem;
+    color: #1c1c1c;
+    font-family: "NunitoRegular";
+}
+.signup-text {
+    color: #10274F;
+    font-family: "NunitoBold";
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.user-type {
+    width: 100%;
+    padding: 1.6rem 1.4rem;
+    background-color: #eeeeee;
+    font-size: 1.2rem;
+    font-family: "NunitoRegular";
+    color: #888;
+    border: 1px solid #b7b7b7;
+    border-radius: .5rem;
+}
+.profession-field > input {
+    font-size: 1.2rem;
+    color: #B8C0CB;
+    font-family: "NunitoRegular";
+    padding: 1rem 2rem;
+    border: 1px solid #C2C9D4;
+    border-radius: 5px;
+}

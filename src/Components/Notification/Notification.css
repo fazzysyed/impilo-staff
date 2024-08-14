@@ -1,0 +1,9 @@
+.notification-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+}
+.notification-section > h2 {
+    font-weight: 700;
+}

@@ -1,0 +1,61 @@
+.meeting-footer {
+  background: #524494;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.device-selectors {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Space between selectors */
+  margin-bottom: 10px; /* Space between selectors and icons */
+}
+
+.device-selector {
+  display: flex;
+  flex-direction: column;
+  color: white; /* Text color for labels */
+}
+
+.device-selector label {
+  margin-bottom: 5px; /* Space between label and select element */
+}
+
+.select-call {
+  background: #3c4043;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.meeting-icons {
+  color: white;
+  background: #3c4043;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ea4335;
+}
+
+div[disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
