@@ -11,12 +11,14 @@ import { handleAPIRequest } from "../../../helper/ApiHandler";
 const configuration = {
   iceServers: [
     {
-      urls: "stun:stun.l.google.com:19302",
+      urls: "turn:13.246.13.227:3478?transport=udp",
+      username: "username1",
+      credential: "password1",
     },
     {
-      urls: "turn:3.128.78.243:3478?transport=udp",
-      username: "zomie",
-      credential: "password",
+      urls: "stun:13.246.13.227:3478",
+      username: "username1",
+      credential: "password1",
     },
   ],
   iceCandidatePoolSize: 10,
@@ -28,6 +30,9 @@ const MainScreen = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const user = useSelector((state) => state.user);
+  const [remoteAdded, setRemoteAdded] = useState(false);
+
+  const [currentSocket, setCurrentSocket] = useState(null);
 
   const [peerConnection, setPeerConnection] = useState(
     new RTCPeerConnection(configuration)
@@ -39,7 +44,8 @@ const MainScreen = (props) => {
   const [videoDevices, setVideoDevices] = useState([]);
   const [audioDevices, setAudioDevices] = useState([]);
   const [selectedDeviceId, setSelectedDeviceId] = useState(null);
-  const [selectedAudioDeviceId, setSelectedAudioDeviceId] = useState(null);
+
+  const [uniqueCandidates, setUnique] = useState([]);
 
   const handleMicClick = () => {
     if (localStream) {
@@ -81,14 +87,13 @@ const MainScreen = (props) => {
         });
 
         if (remoteVideoRef.current && 1 === 1) {
-          console.log("remoteVideoRef.current is null");
           remoteVideoRef.current.srcObject = remoteStream;
-        } else {
-          console.log("remoteVideoRef.current is null");
         }
 
         setRemoteStream(remoteStream);
       };
+
+      registerPeerConnectionListeners();
       socket.on(`make-offer-${user.id}`, async (dataFromOffer) => {
         console.log("Received offer from server:", dataFromOffer);
 
@@ -108,23 +113,6 @@ const MainScreen = (props) => {
         }
       });
 
-      peerConnection.onicecandidate = (event) => {
-        if (event.candidate) {
-          socket.emit("ice-candidate", {
-            from: `${user?.id}`,
-            targetUserId: `${location.state.appointment?.doctor_id}`,
-            iceCandidateData: [
-              {
-                typeCandidate: "candidate",
-                label: event?.candidate?.sdpMLineIndex,
-                id: event?.candidate?.sdpMid,
-                candidate: event?.candidate?.candidate,
-              },
-            ],
-          });
-        }
-      };
-
       socket.on(`offer-acknowledgment-${user?.id}`, async (data) => {
         console.log("Offer acknowledgment received:", data);
 
@@ -134,6 +122,14 @@ const MainScreen = (props) => {
             sdp: data?.offer,
           });
           await peerConnection.setRemoteDescription(remoteDesc);
+
+          socket.emit("ice-candidate", {
+            from: `${user?.id}`,
+            targetUserId: `${location.state.appointment?.doctor_id}`,
+            iceCandidateData: uniqueCandidates,
+          });
+
+          setRemoteAdded(true);
         } catch (error) {
           console.error("Error setting remote description:", error);
         }
@@ -169,6 +165,7 @@ const MainScreen = (props) => {
       });
 
       socket.on(`call-status-${user.id}`, (data) => {
+        console.log(data, "EndedCall");
         if (data?.call_status === "ENDED") {
           setLocalStream(null);
           setRemoteStream(null);
@@ -176,6 +173,9 @@ const MainScreen = (props) => {
             peerConnection.close();
             setPeerConnection(null);
           }
+          cleanup();
+          navigate("/");
+          window.location.reload();
         }
       });
     });
@@ -223,8 +223,6 @@ const MainScreen = (props) => {
     const newDeviceId = event;
     setSelectedDeviceId(newDeviceId);
 
-    console.log(newDeviceId, "61148-122f-4a99-9b3c-a14a3ecb9f4b");
-
     if (localStream) {
       localStream.getTracks().forEach((track) => track.stop());
       setLocalStream(null);
@@ -242,6 +240,22 @@ const MainScreen = (props) => {
     } catch (error) {
       console.error("Error switching camera:", error);
     }
+  };
+
+  const registerPeerConnectionListeners = (socket) => {
+    peerConnection.onicegatheringstatechange = () => {
+      console.log("ICE Gathering State:", peerConnection.iceGatheringState);
+    };
+
+    peerConnection.onsignalingstatechange = () => {
+      console.log("Signaling State:", peerConnection.signalingState);
+      if (peerConnection.signalingState === "stable") {
+      }
+    };
+
+    peerConnection.oniceconnectionstatechange = () => {
+      console.log("ICE Connection State:", peerConnection.iceConnectionState);
+    };
   };
 
   const handleAudioDeviceChange = async (newAudioDeviceId) => {
@@ -312,12 +326,29 @@ const MainScreen = (props) => {
     }
   };
   useEffect(() => {
+    const handleICECandidate = (event) => {
+      if (event.candidate) {
+        const candidateData = {
+          label: event.candidate.sdpMLineIndex,
+          id: event.candidate.sdpMid,
+          candidate: event.candidate.candidate,
+        };
+
+        uniqueCandidates.push(candidateData);
+
+        setUnique(uniqueCandidates);
+      }
+    };
+
+    peerConnection.onicecandidate = handleICECandidate;
     fetchVideoDevices();
     fetchAudioDevices();
 
     console.log(location.state.appointment);
 
     const socket = io("https://brightspace.health:3001/");
+
+    setCurrentSocket(socket);
     if (location?.state?.appointment) {
       const callData = {
         doc_id: location?.state?.appointment?.doctor_id?.toString(),
@@ -368,15 +399,16 @@ const MainScreen = (props) => {
           onCameraDeviceChange={(id) => handleDeviceChange(id)}
           onScreenClick={startScreenSharing}
           onShowWords={() => {
-            const socket = io("https://brightspace.health:3001/");
-            socket.emit("call-status", {
-              from: user.id,
-              targetUserId: dataFor?.patient_id,
+            console.log(currentSocket);
+
+            currentSocket.emit("call-status", {
+              from: `${user.id}`,
+              targetUserId: `${location.state.appointment?.doctor_id}`,
               call_status: "ENDED",
             });
             cleanup();
             navigate("/");
-            window.location.reload();
+            // window.location.reload();
           }}
           onMicClick={handleMicClick}
           onVideoClick={handleVideoClick}
